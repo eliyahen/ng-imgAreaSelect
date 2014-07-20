@@ -7,7 +7,7 @@
 
 angular.module('myApp', [
 'ngRoute', 'ngSanitize', 'ngTouch', 'ngAnimate',		//additional angular modules
-'Sk1Zy.ng-imgAreaSelect'
+'ng-imgAreaSelect'
 ]).
 config(['$routeProvider', '$locationProvider', '$compileProvider', function($routeProvider, $locationProvider, $compileProvider) {
 	/**
