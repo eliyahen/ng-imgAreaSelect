@@ -22,6 +22,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-express');
+	grunt.loadNpmTasks('grunt-open');
 
 	/**
 	Function that wraps everything to allow dynamically setting/changing grunt options and config later by grunt task. This init function is called once immediately (for using the default grunt options, config, and setup) and then may be called again AFTER updating grunt (command line) options.
@@ -103,7 +106,39 @@ module.exports = function(grunt) {
 					src: ['reaSelect.css'],
 					dest: 'reaSelect.min.css'
 				}
-			}/*,
+			},
+			express: {
+		      all: {
+		        options: {
+		          port: 9000,
+		          hostname: "0.0.0.0",
+		          bases: [__dirname], // Replace with the directory you want the files served from
+		                              // Make sure you don't use `.` or `..` in the path as Express
+		                              // is likely to return 403 Forbidden responses if you do
+		                              // http://stackoverflow.com/questions/14594121/express-res-sendfile-throwing-forbidden-error
+		          livereload: true
+		        }
+		      }
+		    },
+		    watch: {
+		      all: {
+		        // Replace with whatever file you want to trigger the update from
+		        // Either as a String for a single entry 
+		        // or an Array of String for multiple entries
+		        // You can use globing patterns like `css/**/*.css`
+		        // See https://github.com/gruntjs/grunt-contrib-watch#files
+		        files: ['index.html', 'pages/**/*'],
+		        options: {
+		          livereload: true
+		        }
+		      }
+		    },
+		    open: {
+		      all: {
+		        // Gets the port from the connect configuration
+		        path: 'http://localhost:<%= express.all.options.port%>'
+		      }
+		    }/*,
 			karma: {
 				unit: {
 					configFile: publicPathRelativeRoot+'config/karma.conf.js',
@@ -121,6 +156,11 @@ module.exports = function(grunt) {
 		// Default task(s).
 		// grunt.registerTask('default', ['jshint:beforeconcat', 'less:development', 'concat:devJs', 'concat:devCss']);
 		grunt.registerTask('default', ['jshint:beforeconcatQ', 'less:development', 'cssmin', 'uglify:build']);
+		grunt.registerTask('server', [
+		    'express',
+		    'open',
+		    'watch'
+		  ]);
 	
 	}
 	init({});		//initialize here for defaults (init may be called again later within a task)
