@@ -1,12 +1,17 @@
 {
   "name": "ng-imgAreaSelect",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "authors": [
     "Grímur Daníelsson <grimur.danielsson@gmail.com>"
   ],
   "description": "asdf",
   "keywords": [
-    ""
+    "angular",
+    "imgareaselect",
+    "crop",
+    "image",
+    "area",
+    "select"
   ],
   "license": "MIT",
   "ignore": [
@@ -18,9 +23,8 @@
   ],
   "dependencies": {
     "angular": "~1.2.0",
-    "angular-animate": "~1.2.0",
-    "angular-sanitize": "~1.2.0",
-    "angular-touch": "~1.2.0"
+    "jquery": "~2.1.1",
+    "imgareaselect": "~0.9.10"
   },
   "devDependencies": {}
 }
