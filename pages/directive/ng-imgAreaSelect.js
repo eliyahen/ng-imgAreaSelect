@@ -20,6 +20,27 @@ angular.module('ng-imgAreaSelect', [])
           		scope.ngImgAreaSelect = {};
           	}
 
+            if("x1" in scope.ngImgAreaSelect) {
+              scope.$apply(function() {
+                scope.selection.x1 = scope.ngImgAreaSelect.x1;
+              });
+            }
+            if("y1" in scope.ngImgAreaSelect) {
+              scope.$apply(function() {
+                scope.selection.y1 = scope.ngImgAreaSelect.y1;
+              });
+            }
+            if("x2" in scope.ngImgAreaSelect) {
+              scope.$apply(function() {
+                scope.selection.x2 = scope.ngImgAreaSelect.x2;
+              });
+            }
+            if("y2" in scope.ngImgAreaSelect) {
+              scope.$apply(function() {
+                scope.selection.y2 = scope.ngImgAreaSelect.y2;
+              });
+            }
+
             scope.ngImgAreaSelect.instance = true;
           	scope.ngImgAreaSelect.onSelectEnd = function(img, selection) {
               scope.$emit('selectend', { img: img, selection: selection});
@@ -38,7 +59,7 @@ angular.module('ng-imgAreaSelect', [])
                 scope.$emit('selectchange', { img: img, selection: selection });
             };
             scope.ngImgAreaSelect.onInit = function(img, selection) {
-                scope.$emit('init', { img: img, selection: selection });
+                scope.$emit('selectinit', { img: img, selection: selection });
             };
             scope.ngImgAreaSelect.onSelectStart = function(img, selection) {
                 scope.$emit('selectstart', { img: img, selection: selection });
