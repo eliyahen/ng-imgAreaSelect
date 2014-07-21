@@ -19,7 +19,7 @@ config(['$routeProvider', '$locationProvider', '$compileProvider', function($rou
 	// var staticPath ='/';
 	var staticPath;
 	// staticPath ='/angular-directives/ng-imgAreaSelect/';		//local
-	staticPath ='/ng-imgAreaSelect/';		//nodejs (local)
+	staticPath ='';		//nodejs (local)
 	// staticPath ='/ng-imgAreaSelect/';		//gh-pages
 	var appPathRoute ='/';
 	var pagesPath =staticPath+'pages/';
